@@ -53,7 +53,6 @@ apiRouter.use('/analyze', authMiddleware, analyzeRouter);
 apiRouter.use('/assets', authMiddleware, assetsRouter);
 apiRouter.use('/matches', authMiddleware, matchesRouter);
 apiRouter.use('/report', authMiddleware, reportRouter);
-});
 
 app.use('/api', apiRouter);
 
