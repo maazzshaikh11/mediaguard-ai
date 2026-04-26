@@ -1,0 +1,53 @@
+# ============================================================
+# AI Media Matching System — Production Dependencies
+# ============================================================
+# Install with: pip install -r requirements.txt
+# Python version: 3.10+
+# ============================================================
+
+# ── Web Framework ────────────────────────────────────────────
+fastapi==0.111.0              # High-performance async API framework
+uvicorn[standard]==0.30.1    # ASGI server with hot-reload support
+python-multipart==0.0.9      # Required for FastAPI file uploads
+
+# ── Data Validation ──────────────────────────────────────────
+pydantic==2.7.1               # Data validation and serialization
+pydantic-settings==2.3.0      # Settings management via env vars
+
+# ── Computer Vision ──────────────────────────────────────────
+opencv-python-headless==4.9.0.80  # OpenCV (headless — no GUI needed on server)
+numpy==1.26.4                 # Numerical computing (required by OpenCV)
+Pillow==10.3.0                # Image loading, conversion utilities
+
+# ── Perceptual Hashing ───────────────────────────────────────
+ImageHash==4.3.1              # pHash, dHash, aHash, wHash implementations
+
+# ── OCR ──────────────────────────────────────────────────────
+pytesseract==0.3.10           # Python wrapper for Tesseract OCR engine
+# NOTE: Tesseract binary must be installed separately:
+#   macOS:  brew install tesseract
+#   Ubuntu: apt-get install tesseract-ocr
+
+# ── Video Processing ─────────────────────────────────────────
+# OpenCV handles video reading; ffmpeg-python is a fallback
+ffmpeg-python==0.2.0          # FFmpeg bindings (fallback frame extractor)
+# NOTE: FFmpeg binary must be installed:
+#   macOS:  brew install ffmpeg
+#   Ubuntu: apt-get install ffmpeg
+
+# ── Text Similarity ──────────────────────────────────────────
+# Jaccard similarity is implemented natively — no extra lib needed
+
+# ── Logging & Utilities ──────────────────────────────────────
+loguru==0.7.2                 # Structured logging with rotation support
+python-dotenv==1.0.1          # Load .env variables into environment
+
+# ── Testing ──────────────────────────────────────────────────
+pytest==8.2.0                 # Test runner
+pytest-asyncio==0.23.7        # Async test support for FastAPI
+httpx==0.27.0                 # Async HTTP client (for FastAPI TestClient)
+
+# ── Optional: Performance ─────────────────────────────────────
+# Uncomment if deploying on GPU-capable server
+# torch==2.3.0
+# torchvision==0.18.0

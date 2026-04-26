@@ -1,0 +1,30 @@
+# Security
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Project Data
+ai/uploads/
+ai/corpus/*
+!ai/corpus/.keep
+
+# Redundant Root Files
+ai/fingerprint.py
+ai/ocr_extractor.py
+ai/video_processor.py
+ai/manual_test.py
+ai/test_api.py
+ai/test_hist.py
+ai/implementationplan.md
+ai/tests/
+
+# Environment
+venv/
+env/
+.env
