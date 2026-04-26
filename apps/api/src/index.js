@@ -7,6 +7,10 @@ import multer from 'multer';
 import authMiddleware from './middleware/auth.js';
 import errorHandler from './middleware/errorHandler.js';
 import { validateAnalyzeBody } from './middleware/validate.js';
+import analyzeRouter from './routes/analyze.js';
+import assetsRouter from './routes/assets.js';
+import matchesRouter from './routes/matches.js';
+import reportRouter from './routes/report.js';
 
 dotenv.config();
 
@@ -45,9 +49,10 @@ app.get('/health', (req, res) => {
 
 const apiRouter = express.Router();
 
-apiRouter.post('/analyze', authMiddleware, upload.single('file'), validateAnalyzeBody, (req, res) => {
-  // Placeholder logic for analyzing
-  res.status(200).json({ status: 'success', assetId: null });
+apiRouter.use('/analyze', authMiddleware, analyzeRouter);
+apiRouter.use('/assets', authMiddleware, assetsRouter);
+apiRouter.use('/matches', authMiddleware, matchesRouter);
+apiRouter.use('/report', authMiddleware, reportRouter);
 });
 
 app.use('/api', apiRouter);
